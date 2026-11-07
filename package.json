@@ -79,6 +79,7 @@
   "module": "./index.mjs",
   "name": "yargs",
   "overrides": {
+    "js-yaml": "4.3.2",
     "tmp": "0.2.7"
   },
   "repository": {
