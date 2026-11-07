@@ -84,7 +84,9 @@
     "tmp": "0.2.7",
     "mocha": {
       "minimatch": "11.0.1",
-      "serialize-javascript": "7.1.3"
+      "serialize-javascript": "7.1.3",
+      "diff": "8.0.3",
+      "glob": "14.0.2"
     },
     "glob": {
       "minimatch": "11.0.1"
@@ -93,7 +95,8 @@
       "minimatch": "11.0.1"
     },
     "test-exclude": {
-      "minimatch": "11.0.1"
+      "minimatch": "11.0.1",
+      "glob": "14.0.2"
     }
   },
   "repository": {
