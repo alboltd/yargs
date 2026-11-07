@@ -1,38 +1,9 @@
 {
-  "name": "yargs",
-  "version": "18.2.0",
-  "description": "yargs the modern, pirate-themed, successor to optimist.",
-  "main": "./index.mjs",
-  "exports": {
-    "./package.json": "./package.json",
-    "./helpers": "./helpers/helpers.mjs",
-    "./browser": {
-      "types": "./browser.d.ts",
-      "import": "./browser.mjs"
-    },
-    ".": "./index.mjs",
-    "./yargs": "./index.mjs"
-  },
-  "type": "module",
-  "module": "./index.mjs",
   "contributors": [
     {
       "name": "Yargs Contributors",
       "url": "https://github.com/yargs/yargs/graphs/contributors"
     }
-  ],
-  "files": [
-    "browser.mjs",
-    "browser.d.ts",
-    "helpers/*.js",
-    "helpers/*",
-    "index.mjs",
-    "build",
-    "locales",
-    "LICENSE",
-    "lib/platform-shims/*.mjs",
-    "!*.d.ts",
-    "!**/*.d.ts"
   ],
   "dependencies": {
     "cliui": "^9.0.1",
@@ -42,6 +13,7 @@
     "y18n": "^5.0.5",
     "yargs-parser": "^22.0.0"
   },
+  "description": "yargs the modern, pirate-themed, successor to optimist.",
   "devDependencies": {
     "@babel/eslint-parser": "^7.26.10",
     "@babel/preset-typescript": "^7.26.0",
@@ -66,26 +38,32 @@
     "which": "^2.0.2",
     "yargs-test-extends": "^1.0.1"
   },
-  "scripts": {
-    "fix": "gts fix && npm run fix:js",
-    "fix:js": "eslint . --ext mjs --ext js --fix",
-    "posttest": "npm run check",
-    "test": "c8 mocha --enable-source-maps ./test/*.mjs --require ./test/before.mjs --timeout=24000 --check-leaks",
-    "test:esm": "c8 mocha --enable-source-maps ./test/esm/*.mjs --check-leaks",
-    "coverage": "c8 report --check-coverage",
-    "prepare": "npm run compile",
-    "pretest": "npm run compile -- -p tsconfig.test.json",
-    "compile": "rimraf build && tsc",
-    "check": "gts lint && npm run check:js",
-    "check:js": "eslint . --ext mjs --ext js",
-    "clean": "gts clean",
-    "watch": "rimraf build && npm:watch:tsc",
-    "watch:tsc": "tsc --watch"
+  "engines": {
+    "node": "^20.19.0 || ^22.12.0 || \u003e=23"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yargs/yargs.git"
+  "exports": {
+    ".": "./index.mjs",
+    "./browser": {
+      "import": "./browser.mjs",
+      "types": "./browser.d.ts"
+    },
+    "./helpers": "./helpers/helpers.mjs",
+    "./package.json": "./package.json",
+    "./yargs": "./index.mjs"
   },
+  "files": [
+    "browser.mjs",
+    "browser.d.ts",
+    "helpers/*.js",
+    "helpers/*",
+    "index.mjs",
+    "build",
+    "locales",
+    "LICENSE",
+    "lib/platform-shims/*.mjs",
+    "!*.d.ts",
+    "!**/*.d.ts"
+  ],
   "homepage": "https://yargs.js.org/",
   "keywords": [
     "argument",
@@ -97,7 +75,32 @@
     "command"
   ],
   "license": "MIT",
-  "engines": {
-    "node": "^20.19.0 || ^22.12.0 || >=23"
-  }
+  "main": "./index.mjs",
+  "module": "./index.mjs",
+  "name": "yargs",
+  "overrides": {
+    "tmp": "0.2.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yargs/yargs.git"
+  },
+  "scripts": {
+    "check": "gts lint \u0026\u0026 npm run check:js",
+    "check:js": "eslint . --ext mjs --ext js",
+    "clean": "gts clean",
+    "compile": "rimraf build \u0026\u0026 tsc",
+    "coverage": "c8 report --check-coverage",
+    "fix": "gts fix \u0026\u0026 npm run fix:js",
+    "fix:js": "eslint . --ext mjs --ext js --fix",
+    "posttest": "npm run check",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile -- -p tsconfig.test.json",
+    "test": "c8 mocha --enable-source-maps ./test/*.mjs --require ./test/before.mjs --timeout=24000 --check-leaks",
+    "test:esm": "c8 mocha --enable-source-maps ./test/esm/*.mjs --check-leaks",
+    "watch": "rimraf build \u0026\u0026 npm:watch:tsc",
+    "watch:tsc": "tsc --watch"
+  },
+  "type": "module",
+  "version": "18.2.0"
 }
